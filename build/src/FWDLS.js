@@ -35179,6 +35179,8 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
     this.isMobile = FWDLSUtils.isMobile;
     this.minimized = true;
     this.wasMinimized = this.minimized;
+    this.isClickedNextItem = 0;
+    this.tempOffsetBase = 0;
     this.scale = 1;
     this.renderer = new WebGLRenderer({
       antialias: true,
@@ -35595,13 +35597,20 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
   updatePosition() {
     this.lerpFactor = 0.08;
     if (this.desiredOffsetBase !== void 0 && !this.isDragging) {
+      this.isClickedNextItem += 1;
       this.offsetBase = MathUtils.lerp(
-        this.offsetBase,
+        // this.offsetBase,
+        this.isClickedNextItem > 1 ? this.offsetBase : this.desiredOffsetBase,
         this.desiredOffsetBase,
         this.lerpFactor
       );
-      this.offsetBase = this.desiredOffsetBase;
-      this.desiredOffsetBase = void 0;
+      if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 1e-3) {
+        this.offsetBase = this.desiredOffsetBase;
+        this.desiredOffsetBase = void 0;
+      }
+    }
+    if (this.minimized) {
+      this.isClickedNextItem = 0;
     }
     if (this.desiredPositionX !== void 0 && !this.isDragging) {
       this.positionX = MathUtils.lerp(
@@ -35623,12 +35632,12 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
     this.currentScaleX = MathUtils.lerp(
       this.currentScaleX || 1,
       targetScaleX,
-      this.lerpFactor
+      this.minimized ? this.lerpFactor * 5 : this.lerpFactor
     );
     this.currentScaleY = MathUtils.lerp(
       this.currentScaleY || 1,
       targetScaleY,
-      this.lerpFactor
+      this.minimized ? this.lerpFactor * 5 : this.lerpFactor
     );
     const t = (this.currentScaleX - this.minItemScaleX) / (this.maxItemScaleX - this.minItemScaleX);
     const gapFactor = MathUtils.lerp(this.minGapFactor, this.maxGapFactor, t);
@@ -35677,37 +35686,15 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
     this.prevClosestMeshIndex = this.closestMeshIndex;
   }
   /**
-   * Go to a specific item based on id – smooth shortest-path lerp
-   */
-  goToItem(id) {
-    if (id < 0 || id >= this.meshesAR.length)
-      return;
-    this.isDragging = false;
-    this.positionSpeed = 0;
-    this.positionX = 0;
-    this._positionRatio = void 0;
-    this._minimizeOldSpacing = void 0;
-    const rawTarget = -id * this.baseSpacing;
-    const loopSize = this.baseSpacing * this.meshesAR.length;
-    let diff = rawTarget - this.offsetBase;
-    diff = (diff % loopSize + loopSize) % loopSize;
-    if (diff > loopSize / 2)
-      diff -= loopSize;
-    this.desiredOffsetBase = this.offsetBase + diff;
-    this.closestMeshIndex = id;
-  }
-  /**
    * Go to a specific item based on id
    */
   goToItem(id) {
-    console.log("id: ", id);
     if (id < 0 || id >= this.meshesAR.length)
       return;
     this.isDragging = false;
     this.positionSpeed = 0;
     this.positionX = 0;
     this.desiredOffsetBase = -id * this.baseSpacing;
-    console.log("desiredOffsetBase: ", this.desiredOffsetBase);
     this.closestMeshIndex = id;
   }
   updateVisuals() {

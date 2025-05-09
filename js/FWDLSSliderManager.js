@@ -808,8 +808,8 @@ updatePosition() {
 
     // 2) Inertia
     if (!FWDAnimation.isTweening(this)) {
-        this.positionX     -= this.positionSpeed * 6450 * this.scrollSpeedStrength * this.deltaTime;
-        this.positionSpeed *= Math.pow(0.97, this.deltaTime * 120);
+        this.positionX     -= this.positionSpeed * 10450 * this.scrollSpeedStrength * this.deltaTime;
+        this.positionSpeed *= Math.pow(0.98, this.deltaTime * 120);
     }
 
     // 3) Scale lerping
@@ -819,12 +819,12 @@ updatePosition() {
     this.currentScaleX = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleX || 1,
         targetScaleX,
-        this.minimized ? this.lerpFactor * 5 : this.lerpFactor
+        this.minimized ? this.lerpFactor * 0.3 : this.lerpFactor
     );
     this.currentScaleY = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleY || 1,
         targetScaleY,
-        this.minimized ? this.lerpFactor * 5 : this.lerpFactor
+        this.minimized ? this.lerpFactor * 0.3 : this.lerpFactor
     );
 
     // B) Per-frame gap interpolation
@@ -2837,7 +2837,7 @@ updatePosition() {
         if(this.destroyed) return;
         this.destroyed = true;
         
-        this.stop();
+        // this.stop();
 
         window.removeEventListener('click', this.onCheckClickGUI);
 
