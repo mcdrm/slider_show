@@ -777,10 +777,10 @@ updatePosition() {
             this.desiredOffsetBase,
             this.lerpFactor
         );
-        if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 0.001) {
+        // if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 0.001) {
             this.offsetBase        = this.desiredOffsetBase;
             this.desiredOffsetBase = undefined;
-        }
+        // }
     }
 
     // 1) Lerp toward desiredPositionX
@@ -921,6 +921,7 @@ goToItem(id) {
      * Go to a specific item based on id
      */
     goToItem(id) {
+        console.log('id: ', id);
         if (id < 0 || id >= this.meshesAR.length) return;
     
         // stop any drag/inertia
@@ -930,6 +931,7 @@ goToItem(id) {
     
         // set a smooth target for offsetBase:
         this.desiredOffsetBase = -id * this.baseSpacing;
+        console.log('desiredOffsetBase: ', this.desiredOffsetBase);
         this.closestMeshIndex  = id;
     }
 
