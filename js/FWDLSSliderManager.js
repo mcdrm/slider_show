@@ -387,110 +387,110 @@ export default class FWDLSSliderManager extends FWDLSDisplayObject{
     updateCaption() {
         return;
         //if(this.introRunning) return;
-        this.textOpacity = FWDLSUtils.remap(this.textOpacity, 0.85, 1, 0, 1);
-        this.extraCaptionHeight = 0;
+        // this.textOpacity = FWDLSUtils.remap(this.textOpacity, 0.85, 1, 0, 1);
+        // this.extraCaptionHeight = 0;
     
-        this.currentMesh = this.hitMeshesAR[this.closestMeshIndex];
-        let captionHTML = this.sliderData[this.currentMesh.meshId].caption;
-        this.currentMesh.url = this.sliderData[this.currentMesh.meshId].url;
-        this.currentMesh.target = this.sliderData[this.currentMesh.meshId].target;
+        // this.currentMesh = this.hitMeshesAR[this.closestMeshIndex];
+        // let captionHTML = this.sliderData[this.currentMesh.meshId].caption;
+        // this.currentMesh.url = this.sliderData[this.currentMesh.meshId].url;
+        // this.currentMesh.target = this.sliderData[this.currentMesh.meshId].target;
     
-        if (this.currentMesh.meshId != this.prevCaptionMeshId) {
-            this.curTextId = this.currentMesh.meshId;
-            this.captionDO.innerHTML = captionHTML;
-            this.prevCaptionY = null;
-            this.captionReady = false;
+        // if (this.currentMesh.meshId != this.prevCaptionMeshId) {
+        //     this.curTextId = this.currentMesh.meshId;
+        //     this.captionDO.innerHTML = captionHTML;
+        //     this.prevCaptionY = null;
+        //     this.captionReady = false;
     
-            // Allow layout to reflow before measuring
-            requestAnimationFrame(() => {
-                this.captionReady = true;
-            });
-        }
+        //     // Allow layout to reflow before measuring
+        //     requestAnimationFrame(() => {
+        //         this.captionReady = true;
+        //     });
+        // }
     
-        const currentMeshPosition = FWDLSUtils.getMeshScreenPosition(
-            this.currentMesh,
-            this.camera,
-            this.renderer
-        );
+        // const currentMeshPosition = FWDLSUtils.getMeshScreenPosition(
+        //     this.currentMesh,
+        //     this.camera,
+        //     this.renderer
+        // );
     
-        const currentMeshPXSize = FWDLSUtils.getMeshSizeInPX(
-            this.itemWidth,
-            this.itemHeight,
-            this.horizontalZ,
-            this.camera,
-            this.renderer
-        );
+        // const currentMeshPXSize = FWDLSUtils.getMeshSizeInPX(
+        //     this.itemWidth,
+        //     this.itemHeight,
+        //     this.horizontalZ,
+        //     this.camera,
+        //     this.renderer
+        // );
       
     
-        this.captionDO.style.opacity = this.textOpacity * this.captionOpacity;
+        // this.captionDO.style.opacity = this.textOpacity * this.captionOpacity;
     
-        if (captionHTML ) {
+        // if (captionHTML ) {
 
-            this.overwriteCaptionPostion = false;
-            const captionRect = this.captionDO.rect;
+        //     this.overwriteCaptionPostion = false;
+        //     const captionRect = this.captionDO.rect;
     
-            let meshX = currentMeshPosition.x - this.prt.globalX;
-            let remappedX = FWDLSUtils.remap(meshX, 0, this.width, -50, 50);
-            let posX = remappedX - captionRect.width / 2 + this.width / 2;
+        //     let meshX = currentMeshPosition.x - this.prt.globalX;
+        //     let remappedX = FWDLSUtils.remap(meshX, 0, this.width, -50, 50);
+        //     let posX = remappedX - captionRect.width / 2 + this.width / 2;
 
-            if(!this.curPosY || this.prt.isResizing){
-                this.curPosY = currentMeshPosition.y - this.prt.globalY;
-            }
+        //     if(!this.curPosY || this.prt.isResizing){
+        //         this.curPosY = currentMeshPosition.y - this.prt.globalY;
+        //     }
     
     
-            const newPosY = Math.round(
-                this.curPosY +
-                currentMeshPXSize.height / 2
-            );
+        //     const newPosY = Math.round(
+        //         this.curPosY +
+        //         currentMeshPXSize.height / 2
+        //     );
     
-            const yThreshold = 50;
-            const meshChanged = this.currentMesh.meshId !== this.prevCaptionMeshId;
+        //     const yThreshold = 50;
+        //     const meshChanged = this.currentMesh.meshId !== this.prevCaptionMeshId;
             
          
-            // Only update Y if mesh changed, we're resizing, or there's a large shift AND slider is idle
-            const canUpdateY =
-                this.prevCaptionY == null ||
-                this.prt.isResizing ||
-                meshChanged ||
-                (this.prt.isSliderIdle && Math.abs(newPosY - this.prevCaptionY) > yThreshold);
+        //     // Only update Y if mesh changed, we're resizing, or there's a large shift AND slider is idle
+        //     const canUpdateY =
+        //         this.prevCaptionY == null ||
+        //         this.prt.isResizing ||
+        //         meshChanged ||
+        //         (this.prt.isSliderIdle && Math.abs(newPosY - this.prevCaptionY) > yThreshold);
             
-            if (canUpdateY) {
-                this.prevCaptionY = newPosY;
-            }
+        //     if (canUpdateY) {
+        //         this.prevCaptionY = newPosY;
+        //     }
     
-            this.captionDO.style.transform = `translate(${posX}px, ${this.prevCaptionY}px)`;
+        //     this.captionDO.style.transform = `translate(${posX}px, ${this.prevCaptionY}px)`;
     
-            let extraHeight = captionRect.bottom - this.prt.resizeHeight - this.prt.globalY;         
+        //     let extraHeight = captionRect.bottom - this.prt.resizeHeight - this.prt.globalY;         
     
-            const targetHeight = this.prt.resizeHeight + extraHeight;
+        //     const targetHeight = this.prt.resizeHeight + extraHeight;
     
-            let newHeight = 0;
+        //     let newHeight = 0;
     
-            if (this.prt.isResizing) {
-                newHeight = targetHeight;                 // ✅ Instant change during resize
-                this.pixelRemainder = 0;                  // ✅ Clear any lingering smoothing
-            } else {
-                const lerpFactor = 0.2;
-                newHeight = this.prt.mainDO.height +
-                    (targetHeight - this.prt.mainDO.height) * lerpFactor;
+        //     if (this.prt.isResizing) {
+        //         newHeight = targetHeight;                 // ✅ Instant change during resize
+        //         this.pixelRemainder = 0;                  // ✅ Clear any lingering smoothing
+        //     } else {
+        //         const lerpFactor = 0.2;
+        //         newHeight = this.prt.mainDO.height +
+        //             (targetHeight - this.prt.mainDO.height) * lerpFactor;
                 
-            }
+        //     }
     
-            const roundedHeight = Math.round(newHeight);
+        //     const roundedHeight = Math.round(newHeight);
   
     
-            if (this.isMobile) {
-                if (Math.abs(newHeight - this.prt.mainDO.height) > 1) {
-                    this.prt.stageContainer.style.height = `${roundedHeight}px`;
-                    this.prt.mainDO.height = newHeight;
-                }
-            } else {
-                this.prt.stageContainer.style.height = `${roundedHeight}px`;
-                this.prt.mainDO.height = newHeight;
-            }
-        }
+        //     if (this.isMobile) {
+        //         if (Math.abs(newHeight - this.prt.mainDO.height) > 1) {
+        //             this.prt.stageContainer.style.height = `${roundedHeight}px`;
+        //             this.prt.mainDO.height = newHeight;
+        //         }
+        //     } else {
+        //         this.prt.stageContainer.style.height = `${roundedHeight}px`;
+        //         this.prt.mainDO.height = newHeight;
+        //     }
+        // }
     
-        this.prevCaptionMeshId = this.currentMesh.meshId;
+        // this.prevCaptionMeshId = this.currentMesh.meshId;
     }
     
     
@@ -777,10 +777,11 @@ updatePosition() {
             this.desiredOffsetBase,
             this.lerpFactor
         );
-        // if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 0.001) {
+        this.offsetBase = this.desiredOffsetBase;
+        if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 0.001) {
             this.offsetBase        = this.desiredOffsetBase;
             this.desiredOffsetBase = undefined;
-        // }
+        }
     }
 
     // 1) Lerp toward desiredPositionX
@@ -884,38 +885,6 @@ updatePosition() {
     }
     this.prevClosestMeshIndex = this.closestMeshIndex;
 }
-
-
-
-/**
- * Go to a specific item based on id – smooth shortest-path lerp
- */
-goToItem(id) {
-    if (id < 0 || id >= this.meshesAR.length) return;
-
-    // stop drag/inertia
-    this.isDragging       = false;
-    this.positionSpeed    = 0;
-    this.positionX        = 0;
-    this._positionRatio      = undefined;
-    this._minimizeOldSpacing = undefined;
-
-    // compute target in base units
-    const rawTarget = -id * this.baseSpacing;
-    const loopSize  = this.baseSpacing * this.meshesAR.length;
-
-    // shortest-path diff
-    let diff = rawTarget - this.offsetBase;
-    diff = ((diff % loopSize) + loopSize) % loopSize;  // [0..loopSize)
-    if (diff > loopSize / 2) diff -= loopSize;         // (-half..+half]
-
-    // set lerp target
-    this.desiredOffsetBase = this.offsetBase + diff;
-    this.closestMeshIndex  = id;
-}
-
-
-
 
     /**
      * Go to a specific item based on id
