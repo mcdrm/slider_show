@@ -1,0 +1,23 @@
+{
+  "name": "distortion-slider",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch --mode development"
+  },
+  "devDependencies": {
+    "@rollup/plugin-replace": "^6.0.2",
+    "vite": "^4.4.9",
+    "vite-plugin-glsl": "^1.1.2",
+    "vite-plugin-mkcert": "^1.15.0"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "stats.js": "^0.17.0",
+    "three": "^0.175.0"
+  }
+}

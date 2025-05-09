@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Linear Slider</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+   
+
+    <!-- Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    
+
+
+   
+    <!-- CSS. -->
+    <link rel="stylesheet" href="./content/global.css">
+
+
+    <!-- JavaScript. -->
+    <script type="module" crossorigin="anonymous" src="./js/FWDLS.js"></script>
+
+    <script type="module">
+
+    import FWDLS from './js/FWDLS.js';
+
+    new FWDLS({
+                
+            // Main settings.  
+            instance: 'fwdls0',
+            parentId: 'myDiv',
+            displayType: 'afterparent',
+            sliderDataId: 'sliderData',
+            initializeWhenVisible: 'no',
+            maxWidth: 1920,
+            maxHeight: 1000,
+            stopScrollingForPx: 0,
+            autoScale: 'yes',
+            stats: 'yes',
+            gui: 'yes',
+            showPreloader: 'yes',
+            preloaderColor: '#FFFFFF',
+            backgroundColor: '#141414',
+            infinite: 'no',
+            bendVertices: 'no',
+            itemWidth: 2.6,
+            itemHeight: 1.65,
+            minItemScaleX: 0.1,
+            maxItemScaleX: 1,
+            minItemScaleY: 0.66,
+            maxItemScaleY: 1,
+            showMaskGradient: 'no',
+            useCaption: 'yes',
+            useBlackAndWhite: 'yes',
+            opacityStrength: 0.8,
+            scrollSpeedStrength: 0.3,
+            scrollBendStrength: 1,
+            defaultCurveDistortionStrength: 0,
+            curveDistortionStrength: 0,
+        
+
+            // Camera postion
+            gap: 0.9,
+            horizontalX: 0,
+            horizontalY: 0,
+            horizontalZ: 0,
+            horizontalRotationX: 0,
+            horizontalRotationY: 0,
+            horizontalRotationZ: 0,
+
+            // Noise
+            noiseAmplitude: 0,
+            noiseFrequency: 0,
+            noiseSpeed: 0.6,
+
+            // Controller 
+            enableControlsAudio: 'yes',
+            showControlButtons: 'yes',
+            controlButtonsNormalColor: '#333333',
+            controlButtonsSelectedColor: '#CD5C5C',
+            controlsImageHeight: 80,
+
+            // Post processing.
+            antialias: 'yes',
+
+            uwaveFrequency: 0.1,
+            waveAmplitude: 0.02,
+            rgbShiftStrength: 0,
+            mouseRippleStrength: 0,
+
+            glitch: 'no',
+
+            buldge: 'no',
+            buldgeDirection: 'in',
+            buldgeFixed: 'yes',
+            buldgeStrength: 1.3,
+
+            rippleDistortion: 'no',
+            rippleDistortionStrength: 0,
+            rippleDistortionSize: 0.5,
+
+            grid: 'no',
+            gridAddRGBDistortion: 'yes',
+            gridSize: 400,
+            gridMouseRadiusFactor: 0.2,
+            gridMouseStrengthFactor: 0.48,
+            gridMouseRelaxation: 0.9,
+
+            afterImage: 'no',
+            afterImageDumping: 0.75,
+
+        });
+        
+        // API.
+        let fwdlsAPI = setInterval(() =>{
+        if(window['fwdls0']){
+            console.log('SC API ready')
+            clearInterval(fwdlsAPI);
+
+            // Register the LIKE event.
+            fwdls0.addEventListener(FWDLS.ERROR, onEerror);
+            fwdls0.addEventListener(FWDLS.ITEM_UPDATE, onItemUpdate);
+            
+        }
+        }, 100);
+
+
+        // Listen for the LIKE event.
+        function onEerror(e){
+           // console.log(e)
+        }
+
+        function onItemUpdate(e){
+            // console.log(e)
+        }
+
+        
+     
+    </script>
+
+  </head>
+
+  <body style="background: #1c1c1c;">
+
+    <!-- Slider parent/holder. -->
+    <div id="myDiv" style="width: 100%; height: 100vh;"></div>
+
+    <button onclick="fwdls0.goToItem(4)">Go to item 4</button>
+    <button onclick="fwdls0.destroy()">Destory</button>
+    
+    <!-- Slider data. -->
+    <div id="sliderData" style="display: none;">
+
+        <div data-src="media/videos/2.mp4" data-width="1280" data-height="720" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 1</p>
+            </div>
+        </div> 
+
+       <div data-src="media/images/1.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 2</p>
+            </div>
+       </div>
+
+       <div data-src="media/images/2.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/3.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+        
+        <div data-src="media/images/4.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/5.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/6.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/7.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+       
+        <div data-src="media/images/8.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/1.mp4" data-width="1280" data-height="720" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/9.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/10.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/11.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/12.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/5.mp4" data-width="1280" data-height="720" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/13.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/14.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/15.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/16.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/3.mp4" data-width="1280" data-height="720" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/17.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/18.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/19.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/20.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/21.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/4.mp4" data-width="1280" data-height="720" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/22.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/23.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/24.jpg" data-width="1920" data-height="1080" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption">Linear Slider 3</p>
+            </div>
+        </div>
+
+
+    </div>
+
+  </body>
+  
+</html>
