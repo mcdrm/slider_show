@@ -35600,10 +35600,8 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
         this.desiredOffsetBase,
         this.lerpFactor
       );
-      if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 1e-3) {
-        this.offsetBase = this.desiredOffsetBase;
-        this.desiredOffsetBase = void 0;
-      }
+      this.offsetBase = this.desiredOffsetBase;
+      this.desiredOffsetBase = void 0;
     }
     if (this.desiredPositionX !== void 0 && !this.isDragging) {
       this.positionX = MathUtils.lerp(
@@ -35702,12 +35700,14 @@ const _FWDLSSliderManager = class _FWDLSSliderManager extends FWDLSDisplayObject
    * Go to a specific item based on id
    */
   goToItem(id) {
+    console.log("id: ", id);
     if (id < 0 || id >= this.meshesAR.length)
       return;
     this.isDragging = false;
     this.positionSpeed = 0;
     this.positionX = 0;
     this.desiredOffsetBase = -id * this.baseSpacing;
+    console.log("desiredOffsetBase: ", this.desiredOffsetBase);
     this.closestMeshIndex = id;
   }
   updateVisuals() {
