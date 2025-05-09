@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shader Infinite Slider</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+   
+
+    <!-- Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+   
+    <!-- CSS. -->
+    <link rel="stylesheet" href="./content/global.css">
+
+    <style>
+        body,
+        html{
+            margin: 0;
+            padding: 0;
+        }  
+    </style>
+
+
+    <!-- JavaScript. -->
+    <link rel="stylesheet" href="./content/global.css">
+    <script type="text/javascript" src="./src/FWDLS.js"></script>
+
+
+    <script>
+        
+        if(document.readyState == 'complete'){
+            fwdSetupUFB();
+        }else{
+            document.addEventListener('DOMContentLoaded', ()=>{
+                fwdSetupUFB();
+            });
+        }
+
+        function fwdSetupUFB(){
+
+            new FWDLS({
+                    
+                // Main settings 
+                instance: 'fwdls0',
+                parentId: 'myDiv',
+                sliderDataId: 'sliderData',
+                displayType: 'responsive',
+                initializeWhenVisible: 'no',
+                maxWidth: 1920,
+                startResizingWidth: 1200,
+                maxHeight: 1000,
+                stopScrollingForPx: 0,
+                paralax: 'yes',
+                autoScale: 'yes',
+                centerOpenPages: 'yes',
+                stats: 'yes',
+                gui: 'yes',
+                roughnessTextureSrc: 'content/roughness.png',
+                loadingPageTextureSrc: 'content/white.png',
+                envMapSource: 'content/studio_small_09_1k.exr',
+                envMapIntensity: 0.1,
+                showPreloader: 'yes',
+                preloaderColor: '#FFFFFF',
+               backgroundColor:'rgba(0, 0, 0, 0)',
+                fullscreenBackgroundColor: 'rgba(0, 0, 0, 1)',
+                useAudio: 'yes',
+                pageRatio: 1.387,
+                pageDepth: 3,
+                startAtPage: 0,
+                showMaskGradient: 'no',
+                slideShowPlayDelay: 4000,
+                slideShowAutoPlay: 'no',
+                pageSidesColor: '#888888',
+                pageBackSideColor: '#666666',
+                directionalLightColor: '#ffffff',
+                directionalLightIntensity: 0.05,
+                ambientLightColor: '#ffffff',
+                ambientLightIntensity: 3.33,
+                lightboxCloseButtonWidth: 30,
+                lightboxCloseButtonHeight: 30,
+                lightboxBackgroundColor: 'rgba(0, 0, 0, .7)',
+    
+                // Controller
+                buttons: 'pages, content, zoomout, zoomin, play, pagesSelector, share, print, sound, fullscreen',
+                buttonsToolTips: 'Pages, Show table of content/Hide table of content, Zoom Out, Zoom In, Play/Pause, Pages Selector, Share, Print, Sound Off/Sound On, Full Screen/Normal Screen',
+                showButtonsLabels: 'yes',
+                showBlockTouchButton: 'no',
+                blockTouchButtonSize: 40,
+                hideControllerDelay: 3,
+                startAndEndButtonsHorizontalGap: 22,
+                startAndEndButtonsVerticalGap: 5,
+                spaceBetweenButtons: 9,
+                controllerOffsetY: 24,
+                buttonsToolTipOffsetY: 6,
+                buttonsIconNormalColor: '#888888',
+                buttonsIconSelectedColor: '#7FDC23',
+                buttonToolTipBackgroundColor: "#ffffff",
+                buttonToolTipTextColor: "#000000",
+                controllerBackgrondColor: 'rgba(25,25,25, .6)',
+                showNextAndPrevButtonsOnMobile: 'yes',
+                showNextAndPrevButtons: 'yes',
+                nextAndPrevButtonsOffsetX: 10,
+                nextAndPrevButtonSize: 56,
+    
+                // Pages
+                pagesBackgroundColor: 'rgba(0,0,0,0.5)',
+                pageNumbersBackgroundColor: 'rgba(0,0,0,0.5)',
+                pageNumbersFontColor: '#FFFFFF',
+                pageImageHeight: 272,
+    
+                // Table of content
+                tableOfContentText: 'Table of content',
+                tableOfContentPosition: 'left',
+                tableOfContentTextColor: '#FFFFFF',
+                tableOfContentWidth: 300,
+                tableOfContentTextNormalColor: '#888888',
+                tableOfContentTextSelectedColor: '#7FDC23',
+                tableOfContentBackgroundColor: '#212020',
+                
+                // Share
+                shareButtons:['faceslider', 'twitter', 'linkedin', 'tumblr', 'pinterest', 'reddit', 'buffer', 'digg','blogger'],
+                shareBackgroundColor:"#212020",
+                shareText:"Share via",
+                shareTextColor: '#FFFFFF',
+                shareLineSeparatorColor: '#3A3A3A',
+    
+                // Camera initial position
+                sliderClosedPosition: 'x:-0.2670574072059476, y:-0.18466880149050313, z:0.8559813418691179, tx:-0.1053521346647944, ty:-0.036358739249120094, tz:-0.01737939867399105',
+                sliderOpenedPosition: 'x:0.03198469882182098, y:-0.2066074368556206, z:1.189157953642134, tx:0.002841416179879332, ty:-0.03052644577232678, tz:-0.037519956717416855',
+                showCameraTool: 'no',
+                
+                // Orbital controls
+                enableOrbitalControls: 'yes',
+                zoomFactor: 0.2,
+                zoomSpeed: .8,
+                dampingFactor: 1,
+                autoRotate: 'no',
+                autoRotateSpeed: 1.2,
+                screenSpacePanning: 'yes',
+                enablePan: 'yes',
+                enableZoom: 'yes',
+                enableKeboardPan: 'yes',
+                keysType: 'asdw', // arrows/asdw
+                panSpeed: 1,
+                keyPanSpeed: 1,
+                zoomMinDistance: 0.37,
+                zoomMaxDistance: 3.47,
+                horizontalRotationMaxAngle: 0,
+                horizontalRotationMinAngle: 0,
+                verticalRotationMinAngle: 0,
+                verticalRotationMaxAngle: 180,
+    
+                // Post processing
+                antialias: 'yes',
+                waveFrequency: 0,
+                waveAmplitude: 0,
+                waveRgbShiftStrength: 0,
+                glitch: 'no',
+                grid: 'no',
+                gridAddRGBDistortion: 'yes',
+                gridSize: 400,
+                gridMouseRadiusFactor: 0.1,
+                gridMouseStrengthFactor: 0.48,
+                gridMouseRelaxation: 0.9,
+                afterImage: 'no',
+                afterImageDumping: 0.9
+    
+            });
+        }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <!-- UFB parent/holder. --> 
+    <div id="myDiv" ></div>
+
+    <!-- UFB data. -->
+    <div id="sliderData" style="display: none;">
+          
+        <div data-src="media/textures/landscape/slider-cover.png" data-cover data-table-of-content="VMEN Frot Cover"></div> 
+
+        <div data-src="media/textures/landscape/slider-back.png" data-back data-table-of-content="VMEN End Cover"></div> 
+
+        <div data-src="media/textures/landscape/1.png" data-table-of-content="Collection gravures ancienes"></div> 
+
+        <div data-src="media/textures/landscape/2.png"  data-table-of-content="Collection gravures ancienes details"></div> 
+
+        <div data-src="media/textures/landscape/3.png" data-table-of-content="Collection gravures ancienes"></div> 
+
+        <div data-src="media/textures/landscape/4.png" data-table-of-content="Collection gravures ancienes details"></div> 
+
+        <div data-src="media/textures/landscape/5.png" data-table-of-content="Collection les jardines"></div> 
+
+        <div data-src="media/textures/landscape/6.png"></div> 
+
+        <div data-src="media/textures/landscape/7.png" data-table-of-content="COLLETION 2025"></div> 
+
+        <div data-src="media/textures/landscape/8.png"></div> 
+
+        <div data-src="media/textures/landscape/9.png" data-table-of-content="COLLETION 2025/2"></div> 
+
+        <div data-src="media/textures/landscape/10.png"></div> 
+
+        <div data-src="media/textures/landscape/11.png" data-table-of-content="Collection paysages lointains"></div> 
+
+        <div data-src="media/textures/landscape/12.png" data-table-of-content="Collection provence"></div> 
+
+        <div data-src="media/textures/landscape/13.png"></div> 
+
+        <div data-src="media/textures/landscape/14.png"></div> 
+
+        <div data-src="media/textures/landscape/15.png" data-table-of-content="Collection 2025/3"></div> 
+
+        <div data-src="media/textures/landscape/16.png"></div> 
+
+        <div data-src="media/textures/landscape/17.png" data-table-of-content="La lampe"></div> 
+
+        <div data-src="media/textures/landscape/18.png" data-table-of-content="Collection textile"></div> 
+    
+    </div>
+
+  </body>
+  
+</html>

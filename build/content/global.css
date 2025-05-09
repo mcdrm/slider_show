@@ -1,0 +1,295 @@
+/**
+ * Linear Slider PACKAGED v:1.0
+ * Linear Slider global CSS.
+ * @author Tibi - FWDesign [https://webdesign-flash.ro/]
+ * Copyright © Since 2006 All Rights Reserved.
+ */
+
+
+/* Vertical caption. */
+.fwdls.caption{
+    position: absolute !important;
+    overflow: visible !important;
+    width: calc(100% - 40px) !important;
+    max-width: 900px !important;
+    text-align: left !important;
+    left: 100px !important;
+    pointer-events: none !important;
+}
+
+.fwdls.caption .fwdls.caption-title{
+    font: 900 100px 'Montserrat', sans-serif !important;
+    display: block !important;
+    max-width: 800px !important;
+    line-height: 98% !important;
+    background-clip: text;
+    position: relative !important;
+    margin: 17px 0 0 0 !important;
+    color: #121212 !important;
+}
+
+.fwdls.caption.horizontal  .fwdls.caption-title{
+    font-size: 60px !important;
+}
+
+.fwdls.caption a {
+    pointer-events: auto  !important;
+}
+
+
+.fwdls.caption-title span{
+    color: #eb1919  !important;
+}
+
+.fwdls.caption-desc{
+    display: inline-block !important;
+    left: 4px !important;
+    font: 400 18px 'Montserrat', sans-serif !important;
+    max-width: 600px !important;
+    line-height: 30px !important;
+    color: #1c1c1c !important;
+    margin: 26px 0 30px 0 !important;
+}
+
+.fwdls.caption a{
+    text-decoration: none;
+	background-image: linear-gradient(#eb1919 calc(100% - 1px), #eb1919 1px) !important;
+	background-position: 0 calc(100% + 1px);
+	background-repeat: no-repeat;
+	background-size: 0% 1px;
+	transition: background-size .6s cubic-bezier(.215,.61,.355,1), color .3s ease-out, background .3s ease-out, border-color .3s ease-out;
+	border-bottom: 1px solid rgba(235, 25, 25, .2);
+	color: #eb1919;
+
+	&:hover{
+		background-size: 100% 1px;
+	
+	}
+}
+
+@media (max-width: 1800px){
+
+    .fwdls.caption.vertical{
+        left: 70px !important;
+    }
+
+    .fwdls.caption.vertical .fwdls.caption-title{
+        max-width: 700px !important;
+    }
+}
+
+@media (max-width: 1500px){
+
+    .fwdls.caption.vertical{
+        left: 60px !important;
+    }
+  
+    .fwdls.caption.vertical .fwdls.caption-title{
+        font-size: 90px !important;
+        max-width: 590px !important;
+    }
+
+    .fwdls.caption.vertical .fwdls.caption-desc{
+        max-width: 450px !important;
+    }
+}
+
+@media (max-width: 1450px){
+  
+    .fwdls.caption.vertical{
+        left: 50px !important;
+    }
+}
+
+@media (max-width: 1200px){
+
+    .fwdls.caption.vertical{
+        left: 40px !important;
+    }
+
+    .fwdls.caption.vertical .fwdls.caption-title{
+        font-size: 70px !important;
+        max-width: 450px !important;
+    }
+}
+
+
+/* Horizontal caption. */
+.fwdls.caption.horizontal{
+    left: 0 !important;
+    margin: 0px 0 0 !important;
+}
+
+
+.fwdls.caption.horizontal .fwdls.caption-title{
+    font: 800 80px 'Montserrat', sans-serif !important;
+    text-align: center !important;
+    line-height: 110% !important;
+    max-width: none !important;
+    max-width: 1200px !important;
+    margin: 17px auto 0 !important;
+}
+
+.fwdls.caption.horizontal .fwdls.caption-desc{
+    display: block !important;
+    text-align: center !important;
+    margin: 20px auto 40px !important;
+}
+
+@media (max-width: 1500px){
+
+    .fwdls.caption.horizontal{
+        left: 0 !important;
+        margin: 20px 0 0 !important;
+    }
+
+    .fwdls.caption.horizontal .fwdls.caption-title{
+        font-size: 60px !important;
+        max-width: 800px !important;
+    }
+
+}
+
+@media (max-width: 800px){
+
+    .fwdls.caption.horizontal{
+        margin: 10px 0 0 !important;
+    }
+
+    .fwdls.caption.horizontal .fwdls.caption-title{
+        font-size: 50px !important;
+    }
+
+    .fwdls.caption.horizontal .fwdls.caption-desc{
+        font-size: 16px !important;
+        max-width: 600px !important;
+        margin: 10px auto 0 !important;
+    }
+
+}
+
+@media (max-width: 600px){
+
+    .fwdls.caption.horizontal .fwdls.caption-title{
+        font-size: 40px !important;
+    }
+
+    .fwdls.caption.horizontal .fwdls.caption-desc{
+        font-size: 16px !important;
+        max-width: 600px !important;
+        margin: 10px auto 0 !important;
+    }
+
+}
+
+
+/* General. */
+.fwdls-error-window{
+    background: #FFF !important;
+}
+
+.fwdls-error-window-text{
+    padding: 7px 21px 9px 23px !important;
+    color: #000;
+}
+
+.fwdlsicon-error{
+    position: relative !important;
+    top: 5px !important;
+    left: -5px !important;
+    margin: 0 1px 0 0;
+    color: #F00;
+}
+
+.fwdlsicon-error:before{
+    font-size: 26px;
+}
+
+
+/* Error window. */
+.fwdls-error-window{
+    background: #FFF !important;
+}
+
+.fwdls-error-window-text{
+    font-size: 16px !important;
+    padding: 7px 21px 9px 23px !important;
+    color: #000;
+}
+
+.fwdls-error{
+    position: relative !important;
+    top: 5px !important;
+    left: -5px !important;
+    margin: 0 1px 0 0;
+    color: #F00;
+}
+
+.fwdls-error:before{
+    font-size: 26px;
+}
+
+
+
+/* Navigation buttons, the buttons colors are set in the slider settings. */
+.fwdls-navigation-button{
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.fwdls-first-button .fwdlsicon,
+.fwdls-second-button .fwdlsicon{
+    position: relative !important; 
+    top: calc(50% - 8px) !important;
+    left: calc(50% - 8px) !important;
+}
+
+
+/* GUI. */
+.dg.main.a{
+    z-index: 9999;
+    margin:0;
+}
+
+.dg.main.a.closed{
+ 
+}
+
+.dg.main.a.opened{
+  
+}
+
+.dg .c{
+    width: 50% !important;
+}
+
+.dg .property-name{
+    width: 50% !important;
+}
+
+.dg.main.a .slider{
+    width: 71%;
+    margin-left:0;
+}
+
+.dg.main.a .has-slider input[type=text]{
+    width: 24% !important;
+    padding: 2px !important;
+}
+
+.dg.main.a .cr.color input[type=text]{
+    padding: 2px 0;
+}
+
+.dg .close-button{
+    width: 100% !important;
+}
+
+.dg > ul{
+    height: auto !important;
+}
+
+/* Stats. */
+.fwdls-imafe-manager > div{
+    position: absolute !important;
+}
