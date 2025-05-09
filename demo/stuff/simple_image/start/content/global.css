@@ -1,0 +1,241 @@
+/* general */
+div, p{
+	font-family:Arial;
+}
+
+/* FWD font icon	*/
+@font-face {
+  font-family: 'fwd-icon';
+  src:
+    url('fonts/fwd-icon.ttf?hxd6vd') format('truetype'),
+    url('fonts/fwd-icon.woff?hxd6vd') format('woff'),
+    url('fonts/fwd-icon.svg?hxd6vd#fwd-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fwd-icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fwd-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fwd-audio:before {
+  content: "\e900";
+}
+.fwd-chevron-left:before {
+  content: "\e901";
+}
+.fwd-chevron-right:before {
+  content: "\e902";
+}
+.fwd-close:before {
+  content: "\e903";
+}
+.fwd-comment:before {
+  content: "\e904";
+}
+.fwd-link:before {
+  content: "\e905";
+}
+.fwd-loading:before {
+  content: "\e906";
+}
+.fwd-menu:before {
+  content: "\e908";
+  color: #929292;
+}
+.fwd-pencil:before {
+  content: "\e909";
+}
+.fwd-pics:before {
+  content: "\e90a";
+}
+.fwd-search:before {
+  content: "\e90b";
+}
+.fwd-share:before {
+  content: "\e90c";
+}
+.fwd-tag:before {
+  content: "\e90d";
+}
+.fwd-video:before {
+  content: "\e90e";
+}
+
+
+/* Inside text */
+.mainHolder{
+	margin:0px;
+	margin-left:10px;
+	margin-top:12px;
+	margin-right:10px;
+	margin-bottom:2px;
+}
+
+.mainHolder2{
+	margin-top:15px;
+	text-align:center;
+}
+
+.mainHolderText{
+	font-family:myFont, Arial;
+	display:inline;
+	font-size:24px;
+	padding:2px;
+	color:#000000;
+	background-color:#FFFFFF;
+	line-height:32px;
+	font-weight:bold;
+}
+
+.mainHolderText2{
+	font-family:myFont, Arial;
+	display:inline;
+	font-size:24px;
+	padding:2px;
+	color:#FFFFFF;
+	background-color:#000000;
+	line-height:32px;
+	font-weight:bold;
+}
+
+.mainHolderText3{
+	font-family:myFont, Arial;
+	display:inline;
+	font-size:24px;
+	padding:2px;
+	color:#FFFFFF;
+	background-color:#0099FF;
+	line-height:32px;
+	font-weight:bold;
+}
+
+.textHolder{
+	margin:0px;
+	margin-left:10px;
+	margin-top:2px;
+	margin-right:10px;
+	padding-top:4px;
+}
+
+.textHolderBottom{
+	margin:0px;
+	margin-left:10px;
+	margin-top:2px;
+	margin-right:10px;
+	padding-top:4px;
+	margin-bottom:12px;
+}
+
+.textHolderBottom2{
+	margin:0px;
+	margin-left:10px;
+	margin-top:2px;
+	margin-right:10px;
+	padding-top:4px;
+	margin-bottom:20px;
+}
+
+.textHolderBottom3{
+	margin:0px;
+	margin-left:10px;
+	margin-top:2px;
+	margin-right:10px;
+	padding-top:4px;
+	text-align:center;
+}
+
+.textHolderText{
+	font-family:myFont, Arial;
+	display:inline;
+	padding:2px;
+	font-size:14px;
+	line-height:21px;
+	color:#FFFFFF;
+	font-weight:600;
+	background-color:#000000;
+	letter-spacing:1px;
+}
+
+.textHolderText2{
+	font-family:myFont, Arial;
+	display:inline;
+	padding:2px;
+	font-size:14px;
+	color:#000000;
+	line-height:21px;
+	font-weight:600;
+	background-color:#FFFFFF;
+	letter-spacing:1px;
+}
+
+
+
+/* Inside text */
+.mainHolderSimple{
+	font-family:myFont, Arial;
+	text-align:center;
+	color:#FFFFFF;
+	background-color:rgba(0, 0, 0, .7);
+	line-height:26px;
+	font-size:22px;
+	font-weight:bold;
+	padding-top:8px;
+}
+
+.mainHolderTextSimple{
+	font-family:myFont, Arial;
+	text-align:center;
+	padding:0px;
+	padding:8px;
+	padding-top:6px;
+	font-size:14px;
+	color:#AAAAAA;
+	background-color:rgba(0, 0, 0, .7);
+	line-height:19px;
+	font-weight:600;
+	margin-bottom:10px;
+	letter-spacing:1px;
+}
+
+.mainHolderTextSimple2{
+	font-family:myFont, Arial;
+	text-align:center;
+	padding:0px;
+	padding:8px;
+	padding-top:6px;
+	font-size:14px;
+	color:#AAAAAA;
+	background-color:rgba(0, 0, 0, .7);
+	line-height:19px;
+	font-weight:600;
+	margin-bottom:0px;
+	letter-spacing:1px;
+}
+
+.fwdlsc-next-and-prev-button{
+	color:#000000 !important;
+	background-color:#FFFFFF ;
+	font-size:18px !important;
+	display: block !important;
+	padding:16px 20px !important;
+}
+
+.fwdlsc-next-and-prev-button-selected{
+	color:#FFFFFF !important;
+	background-color:#000000;
+	font-size:18px !important;
+	display: block !important;
+	padding:16px 20px !important;
+}

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="./content/global.css">
+    <title>Shader Infinite Slider</title>
+    <link rel='icon' href='assets/favicon.png' type='image/x-icon'/>
+
+    <!-- Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <!-- Js and CSS files -->
+    <link rel="stylesheet" type="text/css"  href="content/global.css"/>
+    <link rel='stylesheet' id="main_css" href='css/main.css' type='text/css'/>
+    <script type='text/javascript' src='js/jQuery.js'></script>
+
+    <script type='text/javascript' src="js/FWDLS.js"></script>
+    <script type='text/javascript' src='js/main.js'></script>
+    <script type="text/javascript" src="js/FWDVS.js"></script>
+    <script type="text/javascript" src="js/Lenis.js"></script>
+
+
+    <style>
+        .fwdls-button.fwdls-next-button,
+        .fwdls-button.fwdls-prev-button{
+            opacity: 1 !important;
+        }
+    </style>
+    
+    <script>
+        let page = 'single';
+
+        if(document.readyState == 'complete'){
+            setupSIS();
+        }else{
+            document.addEventListener('DOMContentLoaded', ()=>{
+                setupSIS();
+            });
+        }
+
+        function setupSIS(){
+
+            new FWDLS({
+                
+                // Main settings.  
+                instance: 'fwdsc0',
+                parentId: 'myDiv',
+                displayType: 'responsive',
+                sliderDataId: 'sliderData',
+                initializeWhenVisible: 'no',
+                maxWidth: 1920,
+                maxHeight: 1000,
+                stopScrollingForPx: 0,
+                autoScale: 'yes',
+                antialias: 'yes',
+                stats: 'no',
+                gui: 'yes',
+                showPreloader: 'yes',
+                preloaderColor: '#FFFFFF',
+                backgroundColor: '#FFFFFF',
+                infinite: 'yes',
+                itemWidth: 1.8,
+                itemHeight: 1.4,
+                showMaskGradient: 'no',
+                useCaption: 'yes',
+                useBlackAndWhite: 'yes',
+                opacityStrength: 0.8,
+                rgbShiftStrength: 2,
+                snap: 'yes',
+                scrollSpeedStrength: 0.3,
+                scrollScaleStrength: 0.8,//0.69
+                defaultCurveDistortionStrength: 0.04,
+                curveDistortionStrength: 2,
+                liquidDistortionStrength: 0,
+                mouseRippleStrength: 0.6,
+    
+                // Camera postion
+                verticalGap: 0.05,
+                verticalX: -0.5,
+                verticalY: 0.24,
+                verticalZ: 0.15,
+                verticalRotationX: -0.44,
+                verticalRotationY: -0.25,
+                verticalRotationZ: 0.09,
+                gap: 0.01,
+                showHorizontalAtLestThanWidth: 1100,
+                horizontalX: 0,
+                horizontalY: 0.39,
+                horizontalZ: 0,
+                horizontalRotationX: 0,
+                horizontalRotationY: 0.11,
+                horizontalRotationZ: -0.03,
+    
+                // Noise
+                noiseAmplitude: 0,
+                noiseFrequency: 0,
+                noiseSpeed: 0.6,
+    
+                // Controller 
+                enableControlsAudio: 'yes',
+                showControlButtons: 'yes',
+                controlButtonsNormalColor: '#333333',
+                controlButtonsSelectedColor: '#CD5C5C',
+                controlsImageHeight: 80,
+    
+                // Post processing.
+                uwaveFrequency: 0.1,
+                waveAmplitude: 0.06,
+                glitch: 'no',
+                buldge: 'no',
+                buldgeDirection: 'in',
+                buldgeFixed: 'yes',
+                buldgeStrength: 1.3,
+                rippleDistortion: 'no',
+                rippleDistortionStrength: 0.2,
+                rippleDistortionSize: 0.5,
+                grid: 'no',
+                gridAddRGBDistortion: 'yes',
+                gridSize: 400,
+                gridMouseRadiusFactor: 0.2,
+                gridMouseStrengthFactor: 0.48,
+                gridMouseRelaxation: 0.9,
+                afterImage: 'no',
+                afterImageDumping: 0.75,
+    
+            });
+            
+        }
+
+    </script>
+    
+  </head>
+
+  <body>
+
+    
+    <!-- Main -->
+    <div class="main single">
+
+        <!-- Menu -->
+        <div class="menu-main">
+            <div class="menu-stable">
+                <div class="menu">
+                    <a href="index.html" class="logo-a"><img class="logo" src="assets/logo.png" alt="Shader Infinite Slider"/></a>
+
+                    <nav class="primary-navigation">
+                        <ul id="menu-1">
+                            <li class="menu-item">
+                                <a id="demos_menu"  href="index.html">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <a id="demos_menu" href="#demos">Demos</a>
+                            </li>
+                            <li class="menu-item">
+                                <a id="features_menu" href="#features">Features</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript-documentation.html">JavaScript Documentation</a>
+                            </li>
+
+                            <li class="menu-item">
+                                <a  href="wordpress-documentation.html">Wordpress Documentation</a>
+                            </li>
+                            
+                            <li class="menu-item has-children">
+                                <a href="#" class="buy-now">Buy now <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.8333 4.77914L15.8333 13.9454C15.8333 14.1755 15.6467 14.3621 15.4166 14.3621C15.1865 14.3621 15 14.1755 15 13.9454L15 5.78465L4.87792 15.9067C4.7152 16.0694 4.45139 16.0694 4.28867 15.9067C4.12594 15.744 4.12594 15.4801 4.28867 15.3174L14.4107 5.19539L6.24996 5.19539C6.01984 5.19539 5.83329 5.00884 5.83329 4.77873C5.83329 4.54861 6.01984 4.36206 6.24996 4.36206L15.4166 4.36206C15.5263 4.36206 15.6315 4.40528 15.7095 4.48228L15.7113 4.4841C15.7845 4.55735 15.8277 4.65509 15.8328 4.75807C15.8331 4.76494 15.8333 4.77223 15.8333 4.77914Z" fill="#111010"/>
+                                    </svg>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li class="menu-item">
+                                        <a href="https://1.envato.market/o4LKxW" target="_self">Buy JavaScript Version</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="https://1.envato.market/OeKDkP" target="_self">Buy WP + Woo Plugin</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <nav class="secondary-navigation">
+                        <ul id="menu-1" class="sub-menu has-children">
+                            <li class="menu-item">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <a id="demos_menu_2" href="#demos">Demos</a>
+                            </li>
+                            <li class="menu-item">
+                                <a id="features_menu" href="#features">Features</a>
+                            </li>	
+                            <li class="menu-item">
+                                <a  href="javascript-documentation.html">JavaScript Documentation</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="wordpress-documentation.html">Wordpress Documentation</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="https://1.envato.market/o4LKxW">Buy JavaScript Version</a>
+                            </li>
+                            <li class="menu-item ">
+                                <a href="https://1.envato.market/OeKDkP">Buy WP + Woo Plugin</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <a class="vertical-menu-toggle">
+                        <span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+         <!-- Info. -->
+         <div class="info1 fwd-hide">
+            <h1>Preset 10</h1>
+            <p>This prset is using RGB shift on scroll and more agressive wave animation.</p>
+        </div>
+        
+
+        <!-- Boock -->
+        <div  id="myDiv"><svg class="bk" width="1587" height="1470" viewBox="0 0 1587 1470" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="bg 1" clip-path="url(#clip0_381_1557)">
+            <g id="bg">
+            <g id="Ellipse 14" opacity="0.2" filter="url(#filter0_f_381_1557)">
+            <path id="Vector" d="M771.5 1070C976.674 1070 1143 903.674 1143 698.5C1143 493.326 976.674 327 771.5 327C566.326 327 400 493.326 400 698.5C400 903.674 566.326 1070 771.5 1070Z" fill="#D9D9D9"/>
+            </g>
+            <g id="Ellipse 15" opacity="0.4" filter="url(#filter1_f_381_1557)">
+            <path id="Vector_2" d="M771.5 959C915.37 959 1032 842.37 1032 698.5C1032 554.63 915.37 438 771.5 438C627.63 438 511 554.63 511 698.5C511 842.37 627.63 959 771.5 959Z" fill="#D9D9D9"/>
+            </g>
+            </g>
+            </g>
+            <defs>
+            <filter id="filter0_f_381_1557" x="0" y="-73" width="1543" height="1543" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="200" result="effect1_foregroundBlur_381_1557"/>
+            </filter>
+            <filter id="filter1_f_381_1557" x="230.516" y="157.516" width="1081.97" height="1081.97" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="140.242" result="effect1_foregroundBlur_381_1557"/>
+            </filter>
+            <clipPath id="clip0_381_1557">
+            <rect width="1587" height="1470" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </div>
+        
+       
+        <div class="clients-and-review">
+
+            <!-- Clients -->
+            <div class="reviews fwd-hide">
+                <div class="info">
+                    <h3>Our Happy <span>Clients Say</span></h3>
+                </div>
+
+                <div class="revs-holder">
+                    <div class="rev">
+                        <h4>“The team support is outstanding. They fixed a problem for me in a very short time. Excellent support, excellent product.”</h4>
+                        <p>Principiate <span> - Client from ENVATO</span></p>
+                    </div>
+                    <div class="rev">
+                        <h4>“Wow. I was really surprised how good and simple this plugin performs. Exeeded all my expectations. Well done!”</h4>
+                        <p>Saniaja <span> - Client from ENVATO</span></p>
+                    </div>
+                    <div class="rev">
+                        <h4>“Really great plugin and easy to use! I had a question and I immediately got an answer.”</h4>
+                        <p>Nicnac1234 <span> - Client from ENVATO</span></p>
+                    </div>
+                    
+                    <div class="bullets">
+                        <div id="b-0" class="bullet"></div>
+                        <div id="b-1" class="bullet"></div>
+                        <div id="b-2" class="bullet"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Contact -->
+            <div class="contact fwd-hide">
+
+                <div class="info">
+                    <h3>Contact <span>us</span></h3>
+                </div>
+
+                <div class="details">
+                    <div class="phone">
+                        <p>Passion leads the way!</p>
+                        <h4>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                <path d="M14.5937 1.90625H1.40618C1.18971 1.90625 0.987055 1.95947 0.803711 2.04719L7.96868 9.21216L9.57459 7.66881C9.57459 7.66881 9.57471 7.66866 9.57474 7.66859C9.57477 7.66853 9.5749 7.66847 9.5749 7.66847L15.1964 2.04731C15.013 1.95953 14.8102 1.90625 14.5937 1.90625Z" fill="#111111"/>
+                                <path d="M15.8594 2.71094L10.5693 8.00075L15.8592 13.2907C15.947 13.1073 16.0002 12.9047 16.0002 12.6882V3.31319C16.0002 3.09684 15.9471 2.89422 15.8594 2.71094Z" fill="#111111"/>
+                                <path d="M0.140938 2.71045C0.0532188 2.89379 0 3.09645 0 3.31292V12.6879C0 12.9043 0.0531562 13.1069 0.140813 13.2902L5.43091 8.00042L0.140938 2.71045Z" fill="#111111"/>
+                                <path d="M9.90646 8.66315L8.30034 10.2067C8.20877 10.2982 8.08884 10.344 7.96893 10.344C7.84902 10.344 7.72905 10.2982 7.63752 10.2067L6.0939 8.66309L0.803711 13.9529C0.987086 14.0407 1.18987 14.094 1.4064 14.094H14.5939C14.8104 14.094 15.013 14.0408 15.1964 13.9531L9.90646 8.66315Z" fill="#111111"/>
+                                </g>
+                            </svg>
+                            <a class="email" href="mailto:tibi_diablo@yahoo.com">tibi_diablo@yahoo.com</a>
+                        </h4>
+                        <h4 class="phone"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path d="M14.7162 10.5022C13.7366 10.5022 12.7747 10.349 11.8633 10.0478C11.4167 9.89542 10.8676 10.0352 10.595 10.3151L8.796 11.6732C6.70963 10.5595 5.42446 9.27475 4.32596 7.20404L5.64408 5.45188C5.98654 5.10988 6.10938 4.61029 5.96221 4.14154C5.65971 3.22529 5.50604 2.26392 5.50604 1.28392C5.50608 0.575958 4.93013 0 4.22221 0H1.28387C0.575958 0 0 0.575958 0 1.28387C0 9.39846 6.60158 16 14.7162 16C15.4241 16 16 15.424 16 14.7161V11.786C16 11.0781 15.424 10.5022 14.7162 10.5022Z" fill="#111111"/>
+                        </g>
+                        </svg>+004 0254 484 259</h4>
+                    </div>
+                </div>
+
+                <div class="plugins">
+                    <a href="http://webdesign-flash.ro/" target="_blank">Browse all plugins <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.8334 4.58358L15.8334 13.7498C15.8334 13.9799 15.6468 14.1665 15.4167 14.1665C15.1866 14.1665 15 13.9799 15 13.7498L15 5.5891L4.87798 15.7112C4.71526 15.8738 4.45145 15.8738 4.28873 15.7112C4.12601 15.5484 4.12601 15.2846 4.28873 15.1218L14.4108 4.99984L6.25002 4.99984C6.01991 4.99984 5.83336 4.81329 5.83336 4.58317C5.83336 4.35305 6.01991 4.1665 6.25002 4.1665L15.4167 4.1665C15.5264 4.1665 15.6315 4.20972 15.7095 4.28672L15.7114 4.28855C15.7846 4.3618 15.8278 4.45953 15.8329 4.56251C15.8332 4.56938 15.8334 4.57667 15.8334 4.58358Z" fill="#FFFFFF"/>
+                        </svg>
+                        </a>
+                </div>
+
+            </div>
+
+            <!-- Buy -->
+            <div class="buy fwd-hide">
+
+                <div class="info">
+                    <h4>Interested?</h4>
+                    <h2>Buy it now!</h2>
+                </div>
+
+                <div class="buttons">
+                    <a href="https://1.envato.market/o4LKxW" class="a2" target="_blank">Buy JavaScript Version <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.5 5.50049V16.5C19.5 16.7761 19.2761 17 19 17C18.7239 17 18.5 16.7761 18.5 16.5V6.70711L6.35355 18.8536C6.15829 19.0488 5.84171 19.0488 5.64645 18.8536C5.45118 18.6583 5.45118 18.3417 5.64645 18.1464L17.7929 6L8 6C7.72386 6 7.5 5.77614 7.5 5.5C7.5 5.22386 7.72386 5 8 5L19 5C19.1316 5 19.2578 5.05186 19.3514 5.14426L19.3536 5.14645C19.4415 5.23435 19.4933 5.35163 19.4994 5.47521C19.4998 5.48345 19.5 5.4922 19.5 5.50049Z" fill="#111111"/>
+                        </svg>
+                        </a>
+                    <a href="https://1.envato.market/OeKDkP"  target="_blank">Buy WP + Woo Plugin <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.5 5.50049V16.5C19.5 16.7761 19.2761 17 19 17C18.7239 17 18.5 16.7761 18.5 16.5V6.70711L6.35355 18.8536C6.15829 19.0488 5.84171 19.0488 5.64645 18.8536C5.45118 18.6583 5.45118 18.3417 5.64645 18.1464L17.7929 6L8 6C7.72386 6 7.5 5.77614 7.5 5.5C7.5 5.22386 7.72386 5 8 5L19 5C19.1316 5 19.2578 5.05186 19.3514 5.14426L19.3536 5.14645C19.4415 5.23435 19.4933 5.35163 19.4994 5.47521C19.4998 5.48345 19.5 5.4922 19.5 5.50049Z" fill="#111111"/>
+                        </svg>
+                        </a>
+                </div>
+            </div>
+
+        </div>
+
+       
+        <!-- Footer -->
+        <div class="footer-bar fwd-hide">
+            <div class="holder">
+                <p>Copyright ©️ FWDesign</p>
+                
+                <div id="top" class="top">
+                    <p>Go top</p>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.238644 5.33941L5.42386 0.234927C5.74206 -0.0783079 6.25795 -0.0783078 6.57614 0.234927L11.7614 5.33941C12.0795 5.65265 12.0795 6.16051 11.7614 6.47374C11.4432 6.78698 10.9273 6.78698 10.6091 6.47374L6.81478 2.73852L6.81478 12L5.18522 12L5.18522 2.73852L1.39091 6.47374C1.07272 6.78698 0.556834 6.78698 0.238643 6.47374C-0.0795475 6.16051 -0.0795475 5.65265 0.238644 5.33941Z" fill="#FFF"/>
+                    </svg>
+                </div>
+                <a class="link" id="features_footer" href="#features">Features</a>
+                <a id="demos_menu_3" class="link" href="#demos">Demos</a>
+            </div>
+        </div>
+
+    </div>
+    
+   
+      <!-- Slider data. -->
+      <div id="sliderData" style="display: none;">
+
+        <div data-src="media/videos/2.mp4" data-width="950" data-height="540" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Shader</span> Infinite Slider</p>
+                <p class="fwdls caption-desc">Next-gen shader slider with multiple <a href="https://webdesign-flash.ro" target="_blank">topologies</a> and post-processing effects.</p>
+            </div>
+        </div> 
+
+       <div data-src="media/images/1.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Composer <span>Post Processing</span></p>
+                <p class="fwdls caption-desc">Multiple post-processing effects, like <strong>glitch</strong>, <strong>buldge</strong>, <strong>ripple</strong>, <strong>after-image</strong>, <strong>waves</strong> and more...</p>
+            </div>
+        </div>
+    
+        <div data-src="media/images/2.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Video</span> Integration</p>
+                <p class="fwdls caption-desc">Embed and play videos/<a href="https://webdesign-flash.ro" target="_blank">.mp4</a> directly inside items.</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/3.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+          <div data-caption="">
+            <p class="fwdls caption-title">Flexible <span>Sizing</span></p>
+            <p class="fwdls caption-desc">Define custom dimensions and place the Shader Infinite Slider exactly where you need it—anywhere on your site or app.</p>
+          </div>
+      </div>
+
+        <div data-src="media/images/4.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Adjustable <span>Item Dimensions</span></p>
+                <p class="fwdls caption-desc">Fine-tune the size and spacing of each mesh item to match your design needs.</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/1.mp4" data-width="960" data-height="540" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Liquid Fluid <span>Distortion</span></p>
+                <p class="fwdls caption-desc">A fluid distortion effect that reacts to <a href="https://webdesign-flash.ro" target="_blank">scroll speed</a>, adding motion and depth to the experience.</p>                
+            </div>
+        </div> 
+
+        <div data-src="media/images/5.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Mesh <span>Black</span> & <span>White</span> Effect</p>
+                <p class="fwdls caption-desc">Enable an optional grayscale effect where only the center mesh remains in color, with smooth blending between it and the surrounding meshes.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/6.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Mouse <span>Ripple</span> Effect</p>
+                <p class="fwdls caption-desc">Optional post-processing <strong>glitch</strong> TV old like effect.</p>
+            </div>
+        </div> 
+
+
+        <div data-src="media/images/7.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Glitch</span> Effect</p>
+                <p class="fwdls caption-desc">Optional post-processing <strong>glitch</strong> TV old like effect.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/8.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Curvature <span>Distortion</span></p>
+                <p class="fwdls caption-desc">Fine-tune the mehes <strong>item curvature effect</strong> with <a href="https://webdesign-flash.ro" target="_blank">adjustable distortion strength</a> for a customized visual experience.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/9.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Vertical</span> & <span>Horizontal</span> Layout</p>
+                <p class="fwdls caption-desc">Choose between vertical or horizontal layouts to best fit your design.</p>
+            </div>
+        </div> 
+
+       <div data-src="media/images/10.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Dynamic <span>Opacity</span></p>
+                <p class="fwdls caption-desc">Control item opacity based on proximity to the <a href="https://webdesign-flash.ro" target="_blank">center item</a> for a smooth depth effect.</p>                
+            </div>
+        </div>
+    
+        <div data-src="media/images/11.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Default Curvature <span>Distortion</span></p>
+                <p class="fwdls caption-desc">Fine-tune the mehes <strong> default item curvature effect</strong> with <a href="https://webdesign-flash.ro" target="_blank">adjustable distortion strength</a> for a customized visual experience.</p>
+            </div>
+        </div>
+      
+
+    </div>
+
+  </body>
+</html>

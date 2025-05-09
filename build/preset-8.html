@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="./content/global.css">
+    <title>Shader Infinite Slider</title>
+    <link rel='icon' href='assets/favicon.png' type='image/x-icon'/>
+
+    <!-- Fonts. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <!-- Js and CSS files -->
+    <link rel="stylesheet" type="text/css"  href="./content/global.css"/>
+    <script type='text/javascript' src="./src/FWDLS.js"></script>
+
+    
+    <script>
+      
+        if(document.readyState == 'complete'){
+            setupSIS();
+        }else{
+            document.addEventListener('DOMContentLoaded', ()=>{
+                setupSIS();
+            });
+        }
+
+        function setupSIS(){
+
+            new FWDLS({
+                
+                // Main settings.  
+                instance: 'fwdsc0',
+                parentId: 'myDiv',
+                displayType: 'responsive',
+                sliderDataId: 'sliderData',
+                initializeWhenVisible: 'no',
+                maxWidth: 1920,
+                maxHeight: 1000,
+                stopScrollingForPx: 0,
+                autoScale: 'yes',
+                antialias: 'yes',
+                stats: 'no',
+                gui: 'yes',
+                showPreloader: 'yes',
+                preloaderColor: '#FFFFFF',
+                backgroundColor: '#FFFFFF',
+                infinite: 'yes',
+                itemWidth: 1.8,
+                itemHeight: 1.2,
+                showMaskGradient: 'no',
+                useCaption: 'yes',
+                useBlackAndWhite: 'yes',
+                opacityStrength: 0.2,
+                rgbShiftStrength: 0,
+                snap: 'yes',
+                scrollSpeedStrength: 0.3,
+                scrollScaleStrength: 1,//0.69
+                defaultCurveDistortionStrength: 0.04,
+                curveDistortionStrength: 2,
+                liquidDistortionStrength: 0,
+                mouseRippleStrength: 0.6,
+    
+                // Camera postion
+                verticalGap: 0.03,
+                verticalX: -0.29,
+                verticalY: 0.04,
+                verticalZ: -0.29,
+                verticalRotationX: -0.28,
+                verticalRotationY: -0.03,
+                verticalRotationZ: -0.22,
+                
+                gap: 0.01,
+                showHorizontalAtLestThanWidth: 1100,
+                horizontalX: 0,
+                horizontalY: 0.39,
+                horizontalZ: 0,
+                horizontalRotationX: 0,
+                horizontalRotationY: 0.11,
+                horizontalRotationZ: -0.03,
+    
+                // Noise
+                noiseAmplitude: 0,
+                noiseFrequency: 0,
+                noiseSpeed: 0.6,
+    
+                // Controller 
+                enableControlsAudio: 'yes',
+                showControlButtons: 'yes',
+                controlButtonsNormalColor: '#333333',
+                controlButtonsSelectedColor: '#CD5C5C',
+                controlsImageHeight: 80,
+    
+                // Post processing.
+                uwaveFrequency: 0.1,
+                waveAmplitude: 0.02,
+                glitch: 'no',
+                buldge: 'yes',
+                buldgeDirection: 'out',
+                buldgeFixed: 'yes',
+                buldgeStrength: 0.77,
+                rippleDistortion: 'no',
+                rippleDistortionStrength: 0.2,
+                rippleDistortionSize: 0.5,
+                grid: 'no',
+                gridAddRGBDistortion: 'yes',
+                gridSize: 400,
+                gridMouseRadiusFactor: 0.2,
+                gridMouseStrengthFactor: 0.48,
+                gridMouseRelaxation: 0.9,
+                afterImage: 'no',
+                afterImageDumping: 0.75,
+    
+            });
+            
+        }
+
+    </script>
+    
+  </head>
+
+  <body>
+
+    <!-- Slider parent. -->
+    <div id="myDiv"></div>
+
+    <!-- Slider data. -->
+    <div id="sliderData" style="display: none;">
+
+        <div data-src="media/videos/2.mp4" data-width="950" data-height="540" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Shader</span> Infinite Slider</p>
+                <p class="fwdls caption-desc">Next-gen shader slider with multiple <a href="https://webdesign-flash.ro" target="_blank">topologies</a> and post-processing effects.</p>
+            </div>
+        </div> 
+
+       <div data-src="media/images/1.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Composer <span>Post Processing</span></p>
+                <p class="fwdls caption-desc">Multiple post-processing effects, like <strong>glitch</strong>, <strong>buldge</strong>, <strong>ripple</strong>, <strong>after-image</strong>, <strong>waves</strong> and more...</p>
+            </div>
+        </div>
+    
+        <div data-src="media/images/2.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Video</span> Integration</p>
+                <p class="fwdls caption-desc">Embed and play videos/<a href="https://webdesign-flash.ro" target="_blank">.mp4</a> directly inside items.</p>
+            </div>
+        </div>
+
+        <div data-src="media/images/3.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+          <div data-caption="">
+            <p class="fwdls caption-title">Flexible <span>Sizing</span></p>
+            <p class="fwdls caption-desc">Define custom dimensions and place the Shader Infinite Slider exactly where you need it—anywhere on your site or app.</p>
+          </div>
+      </div>
+
+        <div data-src="media/images/4.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Adjustable <span>Item Dimensions</span></p>
+                <p class="fwdls caption-desc">Fine-tune the size and spacing of each mesh item to match your design needs.</p>
+            </div>
+        </div>
+
+        <div data-src="media/videos/1.mp4" data-width="960" data-height="540" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Liquid Fluid <span>Distortion</span></p>
+                <p class="fwdls caption-desc">A fluid distortion effect that reacts to <a href="https://webdesign-flash.ro" target="_blank">scroll speed</a>, adding motion and depth to the experience.</p>                
+            </div>
+        </div> 
+
+        <div data-src="media/images/5.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Mesh <span>Black</span> & <span>White</span> Effect</p>
+                <p class="fwdls caption-desc">Enable an optional grayscale effect where only the center mesh remains in color, with smooth blending between it and the surrounding meshes.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/6.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Mouse <span>Ripple</span> Effect</p>
+                <p class="fwdls caption-desc">Optional post-processing <strong>glitch</strong> TV old like effect.</p>
+            </div>
+        </div> 
+
+
+        <div data-src="media/images/7.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Glitch</span> Effect</p>
+                <p class="fwdls caption-desc">Optional post-processing <strong>glitch</strong> TV old like effect.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/8.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Curvature <span>Distortion</span></p>
+                <p class="fwdls caption-desc">Fine-tune the mehes <strong>item curvature effect</strong> with <a href="https://webdesign-flash.ro" target="_blank">adjustable distortion strength</a> for a customized visual experience.</p>
+            </div>
+        </div> 
+
+        <div data-src="media/images/9.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title"><span>Vertical</span> & <span>Horizontal</span> Layout</p>
+                <p class="fwdls caption-desc">Choose between vertical or horizontal layouts to best fit your design.</p>
+            </div>
+        </div> 
+
+       <div data-src="media/images/10.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Dynamic <span>Opacity</span></p>
+                <p class="fwdls caption-desc">Control item opacity based on proximity to the <a href="https://webdesign-flash.ro" target="_blank">center item</a> for a smooth depth effect.</p>                
+            </div>
+        </div>
+    
+        <div data-src="media/images/11.png" data-width="900" data-height="600" data-url="https://fwdapps.net" data-target="_blank">
+            <div data-caption="">
+                <p class="fwdls caption-title">Default Curvature <span>Distortion</span></p>
+                <p class="fwdls caption-desc">Fine-tune the mehes <strong> default item curvature effect</strong> with <a href="https://webdesign-flash.ro" target="_blank">adjustable distortion strength</a> for a customized visual experience.</p>
+            </div>
+        </div>
+      
+
+    </div>
+
+  </body>
+</html>
