@@ -82,6 +82,8 @@ export default class FWDLSSliderManager extends FWDLSDisplayObject{
         this.isMobile = FWDLSUtils.isMobile;
         this.minimized = true;
         this.wasMinimized = this.minimized;
+        this.isClickedNextItem = 0;
+        this.tempOffsetBase = 0;
      
 
         // Scene
@@ -772,16 +774,23 @@ updatePosition() {
 
     // A) Smooth goToItem lerp of offsetBase → desiredOffsetBase
     if (this.desiredOffsetBase !== undefined && !this.isDragging) {
+        this.isClickedNextItem += 1;
         this.offsetBase = FWDLS_THREE.MathUtils.lerp(
-            this.offsetBase,
+            // this.offsetBase,
+            this.isClickedNextItem > 1 ? this.offsetBase : this.desiredOffsetBase,
             this.desiredOffsetBase,
             this.lerpFactor
         );
-        this.offsetBase = this.desiredOffsetBase;
+        // this.tempOffsetBase = this.offsetBase
+        
         if (Math.abs(this.offsetBase - this.desiredOffsetBase) < 0.001) {
             this.offsetBase        = this.desiredOffsetBase;
             this.desiredOffsetBase = undefined;
         }
+    }
+
+    if (this.minimized) {
+        this.isClickedNextItem = 0;
     }
 
     // 1) Lerp toward desiredPositionX
@@ -810,12 +819,12 @@ updatePosition() {
     this.currentScaleX = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleX || 1,
         targetScaleX,
-        this.lerpFactor
+        this.minimized ? this.lerpFactor * 5 : this.lerpFactor
     );
     this.currentScaleY = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleY || 1,
         targetScaleY,
-        this.lerpFactor
+        this.minimized ? this.lerpFactor * 5 : this.lerpFactor
     );
 
     // B) Per-frame gap interpolation
@@ -890,7 +899,6 @@ updatePosition() {
      * Go to a specific item based on id
      */
     goToItem(id) {
-        console.log('id: ', id);
         if (id < 0 || id >= this.meshesAR.length) return;
     
         // stop any drag/inertia
@@ -900,7 +908,6 @@ updatePosition() {
     
         // set a smooth target for offsetBase:
         this.desiredOffsetBase = -id * this.baseSpacing;
-        console.log('desiredOffsetBase: ', this.desiredOffsetBase);
         this.closestMeshIndex  = id;
     }
 
