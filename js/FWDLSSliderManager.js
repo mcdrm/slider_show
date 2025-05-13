@@ -819,12 +819,12 @@ updatePosition() {
     this.currentScaleX = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleX || 1,
         targetScaleX,
-        this.minimized ? this.lerpFactor * 0.3 : this.lerpFactor
+        this.minimized ? this.lerpFactor * 3 : this.lerpFactor
     );
     this.currentScaleY = FWDLS_THREE.MathUtils.lerp(
         this.currentScaleY || 1,
         targetScaleY,
-        this.minimized ? this.lerpFactor * 0.3 : this.lerpFactor
+        this.minimized ? this.lerpFactor * 3 : this.lerpFactor
     );
 
     // B) Per-frame gap interpolation
